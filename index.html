@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>qrcode-generator</title>
+
+		<link rel="stylesheet" href="/public/css/main.css" />
+		<script type="text/javascript" src="/public/js/qrcode.js" defer></script>
+		<script type="text/javascript" src="/public/js/dom-to-image.js"></script>
+        <script type="text/javascript" src="/public/js/lucide.min.js"></script>
+    </head>
+	<body>
+		<main>
+            <form action="#" id="qrcode-options-form">
+                <p>Cuidado com essas opções, ou o QRcode pode não funcionar corretamente</p>
+
+                <fieldset>
+                    <label for="cor-fundo">Cor de fundo do QRcode</label>
+                    <input type="color" name="cor-fundo" id="cor-fundo" value="#ffffff" />
+                </fieldset>
+                <fieldset>
+                    <label for="cor-qrcode">Cor do QRcode</label>
+                    <input type="color" name="cor-qrcode" id="cor-qrcode" value="#000000" />
+                </fieldset>
+                <fieldset>
+                    <button>Trocar cores</button>
+                </fieldset>
+            </form>
+			<form action="#" id="qr-code-form">
+				<fieldset>
+					<label for="texto">Texto:</label>
+					<input type="text" id="texto" name="texto" placeholder="Texto em baixo do QRcode" required />
+				</fieldset>
+				<fieldset>
+					<label for="conteudo">Conteúdo do QRcode</label>
+					<input type="text" name="conteudo" id="conteudo" placeholder="Digite o conteúdo QRcode" />
+				</fieldset>
+				<fieldset>
+					<label for="font-size">Mudar Tamanho da fonte</label>
+
+					<input type="range" min="16" max="64" value="32" step="2" name="font-size" id="font-size" />
+					<span id="show-font-size-value">32px</span>
+				</fieldset>
+				<fieldset>
+					<label for="line-height">Altura da linha (altura vertical do texto)</label>
+					<input type="range" min="16" max="96" value="48" step="2" name="line-height" id="line-height" />
+					<span id="show-line-height-value">48px</span>
+				</fieldset>
+				<div id="colors">
+					<fieldset>
+						<label for="font-color">Cor do texto</label>
+						<input type="color" name="font-color" id="font-color" value="#000000" />
+					</fieldset>
+					<fieldset>
+						<label for="background-qrcode">Cor de fundo</label>
+						<input type="color" name="background-qrcode" id="background-qrcode" value="#ffffff" />
+					</fieldset>
+				</div>
+				<fieldset>
+					<label for="border-radius">Borda redonda</label>
+					<input type="range" name="border-radius" id="border-radius" min="0" max="40" step="2" value="8" />
+					<span id="show-border-radius-value">8px</span>
+				</fieldset>
+				<fieldset>
+					<label for="padding">Espaço em volta do QRcode</label>
+					<input type="range" name="padding" id="padding" min="0" max="96" step="2" value="16" />
+					<span id="show-padding-value">16px</span>
+				</fieldset>
+				<fieldset id="actions">
+					<button type="submit">Gerar <i data-lucide="eye"></i></button>
+					<button type="reset" id="resetar">Resetar no Padrão <i data-lucide="rotate-ccw"></i></button>
+				</fieldset>
+			</form>
+			<div id="qrcode-container">
+				<h2>Visualização</h2>
+				<div id="qrcode-wrapper">
+                    <div id="qrcode-spacing">
+
+                        <div id="qrcode"></div>
+                    </div>
+					<div id="qrcode-text"></div>
+				</div>
+
+				<div id="download">
+					<button id="download-qrcode">Download <i data-lucide="arrow-big-down-dash"></i></button>
+				</div>
+			</div>
+		</main>
+		<script type="text/javascript" src="/public/js/manage.controls.js"></script>
+		<script type="text/javascript" src="/public/js/main.js"></script>
+        <script>
+            lucide.createIcons();
+        </script>
+	</body>
+</html>
